@@ -1,0 +1,5 @@
+defaults:
+  iosxe:
+    devices:
+      managed: true
+      configuration:
