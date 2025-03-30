@@ -74,6 +74,17 @@ module "nxos" {
 | [iosxe_bfd.bfd](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bfd) | resource |
 | [iosxe_bfd_template_multi_hop.bfd_template_multi_hop](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bfd_template_multi_hop) | resource |
 | [iosxe_bfd_template_single_hop.bfd_template_single_hop](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bfd_template_single_hop) | resource |
+| [iosxe_bgp.bgp](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp) | resource |
+| [iosxe_bgp_address_family_ipv4.bgp_address_family_ipv4](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_address_family_ipv4) | resource |
+| [iosxe_bgp_address_family_ipv4_vrf.bgp_address_family_ipv4_vrf](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_address_family_ipv4_vrf) | resource |
+| [iosxe_bgp_address_family_ipv6.bgp_address_family_ipv6](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_address_family_ipv6) | resource |
+| [iosxe_bgp_address_family_ipv6_vrf.bgp_address_family_ipv6_vrf](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_address_family_ipv6_vrf) | resource |
+| [iosxe_bgp_address_family_l2vpn.bgp_address_family_l2vpn](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_address_family_l2vpn) | resource |
+| [iosxe_bgp_ipv4_unicast_neighbor.bgp_ipv4_unicast_neighbor](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_ipv4_unicast_neighbor) | resource |
+| [iosxe_bgp_ipv4_unicast_vrf_neighbor.bgp_ipv4_unicast_vrf_neighbor](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_ipv4_unicast_vrf_neighbor) | resource |
+| [iosxe_bgp_ipv6_unicast_neighbor.bgp_ipv6_unicast_neighbor](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_ipv6_unicast_neighbor) | resource |
+| [iosxe_bgp_l2vpn_evpn_neighbor.bgp_l2vpn_evpn_neighbor](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_l2vpn_evpn_neighbor) | resource |
+| [iosxe_bgp_neighbor.bgp_neighbor](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/bgp_neighbor) | resource |
 | [iosxe_save_config.save_config](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/save_config) | resource |
 | [local_sensitive_file.defaults](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |
 | [terraform_data.validation](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
