@@ -8,13 +8,13 @@ locals {
         entries = [for e in try(acl.entries, []) : {
           sequence           = try(e.sequence, local.defaults.iosxe.configuration.access_lists.standard.entries.sequence, null)
           remark             = try(e.remark, local.defaults.iosxe.configuration.access_lists.standard.entries.remark, null)
-          deny_prefix        = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "deny" ? try(e.deny_prefix, null) : null
-          deny_prefix_mask   = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "deny" ? try(e.deny_prefix_mask, null) : null
+          deny_prefix        = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "deny" ? try(e.prefix, null) : null
+          deny_prefix_mask   = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "deny" ? try(e.prefix_mask, null) : null
           deny_any           = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "deny" ? try(e.any, false) : null
           deny_host          = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "deny" ? try(e.host, null) : null
           deny_log           = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "deny" ? try(e.log, false) : null
-          permit_prefix      = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "permit" ? try(e.permit_prefix, null) : null
-          permit_prefix_mask = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "permit" ? try(e.permit_prefix_mask, null) : null
+          permit_prefix      = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "permit" ? try(e.prefix, null) : null
+          permit_prefix_mask = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "permit" ? try(e.prefix_mask, null) : null
           permit_any         = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "permit" ? try(e.any, false) : null
           permit_host        = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "permit" ? try(e.host, null) : null
           permit_log         = try(e.action, local.defaults.iosxe.configuration.access_lists.standard.entries.action) == "permit" ? try(e.log, false) : null
@@ -50,21 +50,21 @@ locals {
           source_any                    = try(e.source.any, local.defaults.iosxe.configuration.access_lists.extended.entries.source.any, null)
           source_host                   = try(e.source.host, local.defaults.iosxe.configuration.access_lists.extended.entries.source.host, null)
           source_object_group           = try(e.source.object_group, local.defaults.iosxe.configuration.access_lists.extended.entries.source.object_group, null)
-          source_port_equal             = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type) == "equal" ? try(e.source.port, null) : null
-          source_port_greater_than      = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type) == "greater_than" ? try(e.source.port, null) : null
-          source_port_lesser_than       = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type) == "lesser_than" ? try(e.source.port, null) : null
-          source_port_range_from        = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type) == "range" ? try(e.source.port_from, null) : null
-          source_port_range_to          = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type) == "range" ? try(e.source.port_to, null) : null
+          source_port_equal             = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "equal" ? try(e.source.port, null) : null
+          source_port_greater_than      = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "greater_than" ? try(e.source.port, null) : null
+          source_port_lesser_than       = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "lesser_than" ? try(e.source.port, null) : null
+          source_port_range_from        = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "range" ? try(e.source.port_from, null) : null
+          source_port_range_to          = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "range" ? try(e.source.port_to, null) : null
           destination_prefix            = try(e.destination.prefix, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.prefix, null)
           destination_prefix_mask       = try(e.destination.prefix_mask, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.prefix_mask, null)
           destination_any               = try(e.destination.any, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.any, null)
           destination_host              = try(e.destination.host, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.host, null)
           destination_object_group      = try(e.destination.object_group, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.object_group, null)
-          destination_port_equal        = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type) == "equal" ? try(e.destination.port, null) : null
-          destination_port_greater_than = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type) == "greater_than" ? try(e.destination.port, null) : null
-          destination_port_lesser_than  = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type) == "lesser_than" ? try(e.destination.port, null) : null
-          destination_port_range_from   = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type) == "range" ? try(e.destination.port_from, null) : null
-          destination_port_range_to     = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type) == "range" ? try(e.destination.port_to, null) : null
+          destination_port_equal        = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "equal" ? try(e.destination.port, null) : null
+          destination_port_greater_than = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "greater_than" ? try(e.destination.port, null) : null
+          destination_port_lesser_than  = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "lesser_than" ? try(e.destination.port, null) : null
+          destination_port_range_from   = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "range" ? try(e.destination.port_from, null) : null
+          destination_port_range_to     = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "range" ? try(e.destination.port_to, null) : null
           ack                           = try(e.flags.ack, local.defaults.iosxe.configuration.access_lists.extended.entries.flags.ack, null)
           fin                           = try(e.flags.fin, local.defaults.iosxe.configuration.access_lists.extended.entries.flags.fin, null)
           psh                           = try(e.flags.psh, local.defaults.iosxe.configuration.access_lists.extended.entries.flags.psh, null)
