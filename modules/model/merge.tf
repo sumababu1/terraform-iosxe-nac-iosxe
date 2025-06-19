@@ -24,6 +24,12 @@ resource "terraform_data" "validation" {
   }
 }
 
+resource "local_sensitive_file" "model" {
+  count    = var.write_model_file != "" ? 1 : 0
+  content  = yamlencode(local.iosxe_devices)
+  filename = var.write_model_file
+}
+
 resource "local_sensitive_file" "defaults" {
   count    = var.write_default_values_file != "" ? 1 : 0
   content  = local.defaults_string
