@@ -11,7 +11,7 @@ locals {
   model_string    = provider::utils::yaml_merge(concat(local.yaml_strings_directories, local.yaml_strings_files, local.model_strings))
   model           = yamldecode(local.model_string)
   user_defaults   = { "defaults" : try(local.model["defaults"], {}) }
-  defaults_string = provider::utils::yaml_merge([file("${path.module}/defaults/defaults.yaml"), yamlencode(local.user_defaults)])
+  defaults_string = provider::utils::yaml_merge([file("${path.module}/../../defaults/defaults.yaml"), yamlencode(local.user_defaults)])
   defaults        = yamldecode(local.defaults_string)["defaults"]
 }
 
