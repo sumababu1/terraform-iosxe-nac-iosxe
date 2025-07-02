@@ -93,6 +93,9 @@ module "iosxe" {
 | [iosxe_community_list_standard.community_list_standard](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/community_list_standard) | resource |
 | [iosxe_dot1x.dot1x](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/dot1x) | resource |
 | [iosxe_errdisable.errdisable](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/errdisable) | resource |
+| [iosxe_flow_exporter.flow_exporter](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/flow_exporter) | resource |
+| [iosxe_flow_monitor.flow_monitors](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/flow_monitor) | resource |
+| [iosxe_flow_record.flow_records](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/flow_record) | resource |
 | [iosxe_interface_ethernet.ethernet](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ethernet) | resource |
 | [iosxe_interface_loopback.loopback](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_loopback) | resource |
 | [iosxe_interface_mpls.ethernet_mpls](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_mpls) | resource |
