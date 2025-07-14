@@ -50,7 +50,7 @@ locals {
           source_any                    = try(e.source.any, local.defaults.iosxe.configuration.access_lists.extended.entries.source.any, null)
           source_host                   = try(e.source.host, local.defaults.iosxe.configuration.access_lists.extended.entries.source.host, null)
           source_object_group           = try(e.source.object_group, local.defaults.iosxe.configuration.access_lists.extended.entries.source.object_group, null)
-          source_port_equal             = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "equal" ? try(e.source.port, null) : null
+          source_port_equal             = try(e.source.port_type, "") == "equal" && contains([23, "23", "telnet"], try(e.source.port, "")) ? tonumber(try(e.source.port, 23)) : null
           source_port_greater_than      = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "greater_than" ? try(e.source.port, null) : null
           source_port_lesser_than       = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "lesser_than" ? try(e.source.port, null) : null
           source_port_range_from        = try(e.source.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.source.port_type, null) == "range" ? try(e.source.port_from, null) : null
@@ -60,7 +60,7 @@ locals {
           destination_any               = try(e.destination.any, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.any, null)
           destination_host              = try(e.destination.host, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.host, null)
           destination_object_group      = try(e.destination.object_group, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.object_group, null)
-          destination_port_equal        = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "equal" ? try(e.destination.port, null) : null
+          destination_port_equal        = try(e.destination.port_type, "") == "equal" &&contains([23, "23", "telnet"], try(e.destination.port, "")) ? tonumber(try(e.destination.port, 23)) : null
           destination_port_greater_than = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "greater_than" ? try(e.destination.port, null) : null
           destination_port_lesser_than  = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "lesser_than" ? try(e.destination.port, null) : null
           destination_port_range_from   = try(e.destination.port_type, local.defaults.iosxe.configuration.access_lists.extended.entries.destination.port_type, null) == "range" ? try(e.destination.port_from, null) : null
